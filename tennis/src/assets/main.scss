@@ -1,6 +1,13 @@
-body {
-    margin: 0;
-}
+//bootstrap
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+//gooleFonts
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Poetsen+One&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Poetsen One", sans-serif;
+}

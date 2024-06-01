@@ -1,15 +1,20 @@
 <script lang="ts">
-import HeaderBar from "@/components/HeaderBar.vue";
-import { RouterLink } from "vue-router";
+import { defineComponent } from "vue";
+import { useRouter } from "vue-router";
 
-export default {
-    components: {
-        RouterLink,
-    },
+export default defineComponent({
     setup() {
-        return {};
+        const router = useRouter();
+
+        function goMain() {
+            router.push({ path: "/MainView" });
+        }
+
+        return {
+            goMain,
+        };
     },
-};
+});
 </script>
 
 <template>
@@ -79,10 +84,12 @@ export default {
                 </button>
             </div>
         </div>
-
-        <div class="goReverse">
-            <h1>123</h1>
-        </div>
+        <img
+            @click="goMain"
+            class="goReserve"
+            src="../assets/logoImage/badminton.png"
+            alt=""
+        />
     </div>
 </template>
 
@@ -137,28 +144,39 @@ export default {
         font-weight: 700;
         letter-spacing: 0.8em;
     }
-    .content {
-        width: 100%;
-        height: 30vh;
-        background-color: #84bb9c;
-        padding: 2% 2%;
-        border-radius: 10px;
-        overflow: hidden;
-        position: relative;
-        .carousel.slide {
-            height: 100%;
-            .carousel-item {
-                height: 100%;
+    .carousel.slide {
+        height: 100%;
+        border-radius: 15px;
+    }
+
+    .goReserve {
+        position: absolute;
+        width: 19%;
+        top: 50%;
+        right: 50%;
+        background-color: transparent;
+        transform: translate(130px, -350px) rotate(57deg);
+        opacity: 0%;
+        z-index: 1;
+        &:hover {
+            opacity: 100%;
+            cursor: pointer;
+            animation: moveLeftRight 1s infinite ease-in-out;
+            @keyframes moveLeftRight {
+                0% {
+                    transform: translate(130px, -350px) rotate(57deg);
+                }
+                25% {
+                    transform: translate(130px, -350px) rotate(65deg);
+                }
+                50% {
+                    transform: translate(130px, -350px) rotate(57deg);
+                }
+                100% {
+                    transform: translate(130px, -350px) rotate(49deg);
+                }
             }
         }
-    }
-    .goReverse {
-        width: 100px;
-        height: 100px;
-        background-color: pink;
-        position: absolute;
-        top: 25%;
-        right: 50%;
     }
 }
 </style>

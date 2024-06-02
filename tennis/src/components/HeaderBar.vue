@@ -1,13 +1,30 @@
-<script setup lang="ts"></script>
+<script lang="ts">
+import { defineComponent } from "vue";
+import { useRouter } from "vue-router";
+
+export default defineComponent({
+    setup() {
+        const router = useRouter();
+
+        function goMain() {
+            router.push({ path: "/MainView" });
+        }
+
+        return {
+            goMain,
+        };
+    },
+});
+</script>
 
 <template>
     <div class="header">
         <img
+            @click="goMain"
             src="../assets/logoImage/2017年夏季世界大學運動會羽球比賽_LOGO.png"
             alt=""
         />
         <h1>Badminton</h1>
-        <h1 class="chineseName">揮汗如羽</h1>
     </div>
 </template>
 
@@ -15,20 +32,17 @@
 .header {
     width: 100vw;
     height: 20vh;
-    background: linear-gradient(to bottom, #1a4d2e, #4c6e4f);
+    background: #edf1d6;
     padding: 0 15vw;
     display: flex;
     justify-content: baseline;
     align-items: center;
     img {
         height: 90%;
+        cursor: pointer;
     }
     h1 {
         font-weight: 300;
-    }
-    .chineseName {
-        font-family: "Noto Sans TC", sans-serif;
-        font-weight: 700;
     }
 }
 </style>

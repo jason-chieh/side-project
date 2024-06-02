@@ -28,7 +28,7 @@ export default defineComponent({
         <div class="slogon">
             <span class="spanBig"> 揮汗 如羽 </span>
         </div>
-        <p class="midp">喜歡打羽球的朋友可以趕緊手刀預約</p>
+        <p class="midp" @click="goMain">喜歡打羽球的朋友可以點擊我預約</p>
         <div class="content">
             <div
                 id="carouselExampleControls"
@@ -84,12 +84,12 @@ export default defineComponent({
                 </button>
             </div>
         </div>
-        <img
+        <!-- <img
             @click="goMain"
             class="goReserve"
             src="../assets/logoImage/badminton.png"
             alt=""
-        />
+        /> -->
     </div>
 </template>
 
@@ -143,40 +143,46 @@ export default defineComponent({
         opacity: 0.6;
         font-weight: 700;
         letter-spacing: 0.8em;
+        transition: 1s;
+        &:hover {
+            background-color: black;
+            transform: translate(0, -5px);
+            cursor: pointer;
+        }
     }
     .carousel.slide {
         height: 100%;
         border-radius: 15px;
     }
 
-    .goReserve {
-        position: absolute;
-        width: 19%;
-        top: 50%;
-        right: 50%;
-        background-color: transparent;
-        transform: translate(130px, -350px) rotate(57deg);
-        opacity: 0%;
-        z-index: 1;
-        &:hover {
-            opacity: 100%;
-            cursor: pointer;
-            animation: moveLeftRight 1s infinite ease-in-out;
-            @keyframes moveLeftRight {
-                0% {
-                    transform: translate(130px, -350px) rotate(57deg);
-                }
-                25% {
-                    transform: translate(130px, -350px) rotate(65deg);
-                }
-                50% {
-                    transform: translate(130px, -350px) rotate(57deg);
-                }
-                100% {
-                    transform: translate(130px, -350px) rotate(49deg);
-                }
-            }
-        }
-    }
+    // .goReserve {
+    //     position: absolute;
+    //     width: 19%;
+    //     top: 50%;
+    //     right: 50%;
+    //     background-color: transparent;
+    //     transform: translate(130px, -350px) rotate(57deg);
+    //     opacity: 0%;
+    //     z-index: 1;
+    //     &:hover {
+    //         opacity: 100%;
+    //         cursor: pointer;
+    //         animation: moveLeftRight 1s infinite ease-in-out;
+    //         @keyframes moveLeftRight {
+    //             0% {
+    //                 transform: translate(130px, -350px) rotate(57deg);
+    //             }
+    //             25% {
+    //                 transform: translate(130px, -350px) rotate(65deg);
+    //             }
+    //             50% {
+    //                 transform: translate(130px, -350px) rotate(57deg);
+    //             }
+    //             100% {
+    //                 transform: translate(130px, -350px) rotate(49deg);
+    //             }
+    //         }
+    //     }
+    // }
 }
 </style>
